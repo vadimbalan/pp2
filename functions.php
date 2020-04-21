@@ -21,11 +21,28 @@ function removeDupes($numbers)
 {
     $num_unique = array_unique($numbers);
 
-    echo "Removed Dupes: [ ";
+    $result = "";
     foreach ($num_unique as $values)
     {
-        echo "$values ";
+        $result .= "$values, ";
     }
-    echo "]";
+    $result = rtrim($result, ", ");
+    echo "Removed Dupes: [$result]";
 
+}
+
+// Step 6
+function distribution($numbers)
+{
+    $unique = array_unique($numbers);
+    $dupes = array_count_values($numbers);
+    $associativeArray  = array_combine($unique, $dupes);
+
+    $result = "";
+    foreach($associativeArray as $x => $y)
+    {
+        $result .= "$x=>$y, ";
+    }
+    $result = rtrim($result, ", ");
+    echo "<p>Associative Array: [$result]</p>";
 }
